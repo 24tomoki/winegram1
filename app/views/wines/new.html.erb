@@ -1,0 +1,11 @@
+<h1>new wine</h1>
+<!--ワイン新規投稿フォーム-->
+<%= form_with model: @wine, url: '/wines', local:true do |f| %>
+    <h2>name</h2>
+    <%= f.text_field :name %>
+    <h2>explanation</h2>
+    <%= f.text_area :explanation %>
+    <H2>image</H2>
+    <%= f.attachment_field :image %>
+    <%= f.submit 'post' %>
+<% end %>

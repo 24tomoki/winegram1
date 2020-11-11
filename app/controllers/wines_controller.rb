@@ -12,6 +12,10 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
   end
   
+  def edit
+    @wine = Wine.find(params[:id])
+  end
+  
   
   def create
     # データ新規登録するインスタンス
@@ -28,7 +32,7 @@ class WinesController < ApplicationController
   def update
     @wine = Wine.find(params[:id])
     @wine.update(wine_params)
-    redirect_to top_wine_path
+    redirect_to wines_path
   end
   
   private

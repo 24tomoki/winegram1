@@ -4,6 +4,6 @@
 <h1>wines</h1>
 <% @wines.each do |wine| %>
 <p>name</p>
-<%= link_to wine.name, wine_path(wine.id) %>
+<%= link_to wine.name, edit_wine_path(wine.id) %>
 <%= attachment_image_tag wine, :image, size: "100x50" %>
 <% end %>

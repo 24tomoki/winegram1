@@ -5,6 +5,7 @@
 <h4>description</h4>
 <%= f.text_area :description %>
 <h4>image</h4>
-
+<%= f.attachment_field :image %>
+<%= link_to "delete", wine_path(@wine.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
 <%= f.submit "redact", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
 <% end %>

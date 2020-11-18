@@ -5,7 +5,7 @@ class WinesController < ApplicationController
   end
   
   def index
-    @wines = Wine.all
+    @wines = Wine.page(params[:page]).per(5)
   end
   
   def show

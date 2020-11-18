@@ -12,5 +12,8 @@ Rails.application.routes.draw do
   root 'top#home'
   get 'top/mypage' => 'top#mypage'
   get 'top/about' => 'top#about'
-  resources :wines
+  resources :wines do
+    resources :likes, only: [:create, :destroy]
+  end
+  resources :likes, only: [:index]
 end

@@ -1,7 +1,7 @@
 <h1>wines</h1>
 <% @wines.each do |wine| %>
 <%= link_to wine.name, wine_path(wine.id) %>
-<%= attachment_image_tag wine, :image, size: "100x50" %>
+<%= attachment_image_tag wine, :image, size: "200x150" %>
 <h3> <%= wine.likes.count %></h3>
 <% if current_user.already_liked?(wine) %>
   <%= button_to 'いいねを取り消す', wine_like_path(wine,current_user.likes.find_by(wine_id:wine.id)), method: :delete %>

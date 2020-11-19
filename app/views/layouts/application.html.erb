@@ -18,6 +18,11 @@
             <li><%= link_to "my page", user_path(current_user.id) %></li>
             <li><%= link_to "wines", wines_path %></li>
             <li><%= link_to 'new wine', new_wine_path %></_li>
+            <li><select onChange="location.href=value;">
+                     <option value="http://www.google.co.jp/">Google</option>
+                     <option value="http://www.yahoo.co.jp/">Yahoo!</option>
+                  </select>
+            </li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li>admin</li>

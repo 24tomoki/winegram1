@@ -9,6 +9,7 @@ class WinesController < ApplicationController
   end
   
   def show
+    @wines = Wine.all
     @wine = Wine.find(params[:id])
   end
   

@@ -5,7 +5,17 @@ class WinesController < ApplicationController
   end
   
   def index
-    @wines = Wine.page(params[:page]).per(5)
+    #@wines = Wine.page(params[:page]).per(5)
+    if params[:genre] == nil
+    @wines = Wine.all
+    end
+    if params[:genre] == "red"
+      @wines = Wine.where(genre: "red")
+    elsif params[:genre] == "white"
+      @wines = Wine.where(genre: "white")
+    elsif params[:genre] == "sparkling"
+      @wines = Wine.where(genre: "sparkling")
+    end 
   end
   
   def show
@@ -50,7 +60,7 @@ class WinesController < ApplicationController
   private
   
   def wine_params
-    params.require(:wine).permit(:name, :explanation, :image)
+    params.require(:wine).permit(:name, :description, :image, :genre)
   end
   
 end

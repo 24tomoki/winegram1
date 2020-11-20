@@ -10,31 +10,35 @@
   </head>
 
   <body>
-  
-    <header>
-      <nav>
-        <ul>
+    <div class="container">
+      <div class="row">
+       <header>
+        <nav>
+          <ul>
           <% if user_signed_in? %>
-            <li><%= link_to "my page", user_path(current_user.id) %></li>
-            <li><%= link_to "wines", wines_path %></li>
-            <li><%= link_to 'new wine', new_wine_path %></_li>
-            <li><select onChange="location.href=value;">
-                     <option value="http://www.google.co.jp/">Google</option>
-                     <option value="http://www.yahoo.co.jp/">Yahoo!</option>
-                  </select>
+            <li class="col-lg-2"><%= link_to "my page", user_path(current_user.id) %></li>
+            <li class="col-lg-2"><%= link_to "wines", wines_path %></li>
+            <li class="col-lg-2"><%= link_to 'new wine', new_wine_path %></_li>
+            <li class="col-lg-2"><%= form_with(url: wines_path, local:true, method: :get) do |f| %>
+            <%= f.select :genre , ['red', 'white', 'sparkling'] %>
+            <%= f.submit 'post' %>
+            <% end %>
             </li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li class="col-lg-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           <% elsif admin_signed_in? %>
             <li>admin</li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <li class="col-lg-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "about", top_about_path %></li>
-            <li><%= link_to "新規登録", new_user_registration_path %></li>
-            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li class="col-lg-2"><%= link_to "about", top_about_path %></li>
+            <li class="col-lg-2"><%= link_to "新規登録", new_user_registration_path %></li>
+            <li class="col-lg-2"><%= link_to "ログイン", new_user_session_path %></li>
           <% end %>
-        </ul>
-      </nav>
-    </header>
+          </ul>
+        </nav>
+       </header>
+      </div>
+    </div>
+   
     <%= yield %>
   </body>
   <script></script>

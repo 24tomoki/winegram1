@@ -12,34 +12,12 @@
   <body>
     <div class="container">
       <div class="row">
-       <header>
-        <nav>
-          <ul>
-          <% if user_signed_in? %>
-            <li class="col-lg-2"><%= link_to "my page", user_path(current_user.id) %></li>
-            <li class="col-lg-2"><%= link_to "wines", wines_path %></li>
-            <li class="col-lg-2"><%= link_to 'new wine', new_wine_path %></_li>
-            <li class="col-lg-2"><%= form_with(url: wines_path, local:true, method: :get) do |f| %>
-            <%= f.select :genre , ['red', 'white', 'sparkling'] %>
-            <%= f.submit 'post' %>
-            <% end %>
-            </li>
-            <li class="col-lg-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          <% elsif admin_signed_in? %>
-            <li>admin</li>
-            <li class="col-lg-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-          <% else %>
-            <li class="col-lg-2"><%= link_to "about", top_about_path %></li>
-            <li class="col-lg-2"><%= link_to "新規登録", new_user_registration_path %></li>
-            <li class="col-lg-2"><%= link_to "ログイン", new_user_session_path %></li>
-          <% end %>
-          </ul>
-        </nav>
-       </header>
+        <header class="header">
+          <%= render 'layouts/header' %>
+        </header>
+        <%= yield %>
       </div>
     </div>
-   
-    <%= yield %>
   </body>
   <script></script>
 </html>

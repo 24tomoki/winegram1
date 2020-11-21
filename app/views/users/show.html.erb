@@ -1,8 +1,12 @@
+<div class="col-lg-4">
 <h1>name</h1>
 <%= link_to @user.name, edit_user_path(@user.id) %>
 <%= @user.email %>
+</div>
+<div class="col-lg-8">
 <h1>wines</h1>
 <% @wines.each do |wine| %>
 <%= link_to wine.name, edit_wine_path(wine.id) %>
 <%= attachment_image_tag wine, :image, size: "200x150" %>
 <% end %>
+</div>

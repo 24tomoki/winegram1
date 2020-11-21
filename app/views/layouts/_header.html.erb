@@ -1,17 +1,17 @@
-<header>
-    <nav>
+<header class="navbar navbar-fixed-top">
       <% if user_signed_in? %>
-      <div class="logo"><%= link_to image_tag('wine.png',class: "wine-logo"), wines_path %>Winegram</div>
-      <ul class="nav pull-right nav-pills">
+      <nav>
+      <ul class="nav navbar-nav">
+        <li><%= link_to image_tag('wine.png'), wines_path %></li>
         <li class="lists">マイページ
-          <%= link_to "my page", user_path(current_user.id),class: "list" %></li>
+          <%= link_to "my page", user_path(current_user.id) %></li>
         <li class="lists">ワイン一覧
-          <%= link_to "wines", wines_path,class: "list" %></li>
+          <%= link_to "wines", wines_path %></li>
         <li class="lists">新規投稿
-          <%= link_to 'new wine', new_wine_path,class: "list" %></_li>
+          <%= link_to 'new wine', new_wine_path %></_li>
         <li class="lists">ログアウト
-          <%= link_to "log out", destroy_user_session_path,class: "list", method: :delete %></li>
-        <li class="lists"><%= form_with(url: wines_path,class: "list", local:true, method: :get) do |f| %>
+          <%= link_to "log out", destroy_user_session_path, method: :delete %></li>
+        <li class="lists"><%= form_with(url: wines_path, local:true, method: :get) do |f| %>
         <%= f.select :genre , ['red', 'white', 'sparkling'] %>
         <%= f.submit 'post' %>
         <% end %>
@@ -21,12 +21,14 @@
         <li>admin</li>
         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
       <% else %>
-      <div class="logo"><%= link_to image_tag('wine.png',class: "wine-logo"), root_path %>Winegram</div>
+      <nav class="nav navbar-nav navbar-nav navbar-right navbar-left">
+        <div class="logo"><%= link_to image_tag('wine.png',class: "wine-logo"), root_path %></div>
+      </nav>
       <ul class="nav pull-right nav-pills">
         <li><%= link_to "about", top_about_path %></li>
         <li><%= link_to "新規登録", new_user_registration_path %></li>
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
       </ul>
-    </nav>
+      </nav>
  </header>

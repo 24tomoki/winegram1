@@ -1,17 +1,33 @@
-<div class="col-lg-6">
-  <h1>wines</h1>
+<div>
+  <h1 class="title">wines</h1>
+  <div class="line">
+  <table class="table table-hover table-inverse">
+    <thead>
+    <tr>
+     <td>name</td>
+     <td align="center">wine</td>
+     <td></td>
+     <td></td>
+    </tr>
+    </thead>
+    <tbody>
   <% @wines.each do |wine| %>
-  <%= link_to wine.name, wine_path(wine.id) %>
-  <%= attachment_image_tag wine, :image, size: "200x150" %>
-  <h3> <%= wine.likes.count %></h3>
-  <% if current_user.already_liked?(wine) %>
+  <tr></tr>
+  <td><%= link_to wine.name, wine_path(wine.id) %></td>
+  <td align="center"><%= attachment_image_tag wine, :image, class: "image" %></td>
+  <td><h3><%= wine.likes.count %></h3></td>
+  <td><% if current_user.already_liked?(wine) %>
     <%= button_to 'いいねを取り消す', wine_like_path(wine,current_user.likes.find_by(wine_id:wine.id)), method: :delete %>
   <% else %>
     <%= button_to 'いいね', wine_likes_path(wine) %>
   <% end %>
+  </td>
   <%# wine.liked_users.each do |user| %>
     <%#= user.email %>
   <%# end %>
+  </tr>
   <% end %>
-  <%#= paginate @wines %>
+  </tbody>
+  </table>
+  </div>
 </div>

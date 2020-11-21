@@ -3,10 +3,22 @@
 <%= link_to @user.name, edit_user_path(@user.id) %>
 <%= @user.email %>
 </div>
-<div class="col-lg-8">
+<div class="col-lg-8 user_line">
 <h1>wines</h1>
+<table class="table table-hover table-inverse">
+    <thead>
+    <tr>
+    <td>name</td>
+    <td align="center">wine</td>
+    </tr>
+    </thead>
+    <tbody>
 <% @wines.each do |wine| %>
-<%= link_to wine.name, edit_wine_path(wine.id) %>
-<%= attachment_image_tag wine, :image, size: "200x150" %>
+    <tr>
+    <td><%= link_to wine.name, edit_wine_path(wine.id) %></td>
+    <td align="center"><%= attachment_image_tag wine, :image, class: "image" %></td>
+    </tr>
 <% end %>
+    </tbody>
+</table>
 </div>

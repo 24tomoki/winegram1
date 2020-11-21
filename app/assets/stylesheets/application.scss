@@ -15,29 +15,59 @@
  *= require_tree .
  *= require_self
  */
+
+.container{
+    padding-top: 100px;
+}
+
+.navbar-nav{
+      margin: 0 auto;
+      display: table;
+      table-layout: fixed;
+      float:none;
+}
 .home {
     text-align :center;
 }
 
-.logo {
-    margin-left: 70px;
-    height: 100px;
-    padding-top: 20px;
-}
-
-.wine-logo {
+ .wine-logo {
     height: 40px;
     width: 50px;
 }
 
 .lists {
-    margin: 20px;
+    margin: 10px;
 }
 
 .list {
-    padding: 0!important;
+  padding: 0!important;
 }
 
-.nav {
-    margin-right: 400px;
+.title {
+    margin-left: 250px;
+}
+
+
+// overflow用
+.line {
+    height: 400px;
+    overflow: auto;
+    margin-left: 250px;
+}
+
+.user_line {
+    height: 400px;
+    overflow: auto;
+}
+// ここまでがoverflow
+
+
+.image {
+    width: auto;
+    height: 150px;
+}
+
+.navbar-nav li :first-child {
+    height: 100px;
+    width: auto;
 }

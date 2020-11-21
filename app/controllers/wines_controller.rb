@@ -15,7 +15,7 @@ class WinesController < ApplicationController
       @wines = Wine.where(genre: "white")
     elsif params[:genre] == "sparkling"
       @wines = Wine.where(genre: "sparkling")
-    end 
+    end
   end
   
   def show

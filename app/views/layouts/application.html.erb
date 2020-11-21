@@ -10,14 +10,12 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <header class="header">
-          <%= render 'layouts/header' %>
-        </header>
-        <%= yield %>
-      </div>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <div class="row">
+      <%= yield %>
     </div>
+  </div>
   </body>
   <script></script>
 </html>

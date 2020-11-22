@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 /*
@@ -16,6 +22,20 @@
  *= require_self
  */
 
+ .header_block {
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .header_logo img{
+     width: 100px;
+     height: 100px;
+ }
+
+.header_btn {
+    padding: 0!important;
+    margin: 0 15px;
+}
 .container{
     padding-top: 100px;
 }
@@ -30,13 +50,9 @@
     text-align :center;
 }
 
- .wine-logo {
-    height: 40px;
-    width: 50px;
-}
-
 .lists {
     margin: 10px;
+    float: left;
 }
 
 .list {

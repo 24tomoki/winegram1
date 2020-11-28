@@ -6,13 +6,13 @@
       </div>
       <nav>
       <ul class="nav">
-        <li class="lists">マイページ
+        <li class="lists"><div class="word">マイページ</div>
           <%= link_to "my page", user_path(current_user.id), class: "header_btn" %></li>
-        <li class="lists">ワイン一覧
+        <li class="lists"><div class="word">ワイン一覧</div>
           <%= link_to "wines", wines_path, class: "header_btn" %></li>
-        <li class="lists">新規投稿
+        <li class="lists"><div class="word">新規投稿</div>
           <%= link_to 'new wine', new_wine_path,  class: "header_btn" %></_li>
-        <li class="lists">ログアウト
+        <li class="lists"><div class="word">ログアウト</div>
           <%= link_to "log out", destroy_user_session_path, method: :delete,  class: "header_btn" %></li>
         <li class="lists"><%= form_with(url: wines_path, local:true, method: :get) do |f| %>
         <%= f.select :genre , ['red', 'white', 'sparkling'] %>
@@ -28,7 +28,7 @@
       </div>
       <nav>
       <ul class="nav">
-        <li class="lists">ログアウト
+        <li class="lists"><div class="word">ログアウト</div>
           <%= link_to "log out", destroy_admin_session_path, method: :delete,  class: "header_btn" %></li>
       </ul>
       </nav>
@@ -40,13 +40,13 @@
         </div>
         <nav>
         <ul class="nav">
-          <li class="lists">アバウト
+          <li class="lists"><div class="word">アバウト</div>
             <%= link_to "about", top_about_path, class: "header_btn" %></li>
-          <li class="lists">新規登録
+          <li class="lists"><div class="word">新規登録</div>
             <%= link_to "sign up", new_user_registration_path, class: "header_btn" %></li>
-          <li class="lists">ログイン
+          <li class="lists"><div class="word">ログイン</div>
             <%= link_to "log in", new_user_session_path, class: "header_btn" %></li>
-          <li class="lists">管理者
+          <li class="lists"><div class="word">管理者</div>
             <%= link_to "admins", new_admin_session_path, class: "header_btn" %></li>
         </ul>
         </nav>

@@ -32,9 +32,13 @@
      margin: 40px;
  }
  
+ .word {
+     color: #fff;
+ }
+ 
 //  背景画像
  .background {
-  background-image: image-url("black.jpg");
+  background-image: url("black.jpg");
   background-size: cover;
 }
 

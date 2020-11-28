@@ -22,22 +22,47 @@
  *= require_self
  */
 
+.container{
+    background-color: rgba( 180, 180, 180, 0.8 );
+}
+
  .header_block {
      display: flex;
      justify-content: center;
+     margin: 40px;
  }
  
+//  背景画像
+ .background {
+  background-image: url("black.jpg");
+  background-size: cover;
+}
+
+.background:before{
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+}
+
  .header_logo img{
-     width: 100px;
-     height: 100px;
+     width: 60px;
+     height: 60px;
+     border-radius: 70%;
  }
 
 .header_btn {
     padding: 0!important;
     margin: 0 15px;
-}
-.container{
-    padding-top: 100px;
 }
 
 .navbar-nav{
@@ -46,6 +71,12 @@
       table-layout: fixed;
       float:none;
 }
+
+.about{
+    
+}
+
+
 .home {
     text-align :center;
 }

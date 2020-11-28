@@ -1,0 +1,11 @@
+<h1>users</h1>
+<table>
+    <thead>
+        <% @users.each do |user| %>
+        <tr>
+            <th><%= user.email %></th>
+            <th><%= link_to "delete", admins_path(user.id), class:"btn btn-danger btn-lg  btn-base-1 mt-20", method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
+        </tr>
+    </thead>
+        <% end %>
+</table>

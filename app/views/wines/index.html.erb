@@ -1,7 +1,7 @@
-<div>
+<div class="winer">
   <h1 class="title">wines</h1>
   <div class="line">
-  <table class="table table-hover table-inverse">
+  <table class="table table-inverse">
     <thead>
     <tr>
      <td>name</td>
@@ -13,6 +13,7 @@
     <tbody>
   <% @wines.each do |wine| %>
   <tr></tr>
+  <tr class="winer">
   <td><%= link_to wine.name, wine_path(wine.id) %></td>
   <td align="center"><%= attachment_image_tag wine, :image, class: "image" %></td>
   <td><h3><%= wine.likes.count %></h3></td>

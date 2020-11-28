@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
+  namespace :admins do
+    get 'index' => 'members#index'
+    delete 'delete/:id' => 'members#destroy'
+  end
+
   resources :data_pages
   resources :users
   

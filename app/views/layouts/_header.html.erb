@@ -2,7 +2,7 @@
  <% if user_signed_in? %>
    <div class="header_block">
       <div class="header_right">
-        <%= link_to image_tag('wine.png'), wines_path, class: "header_logo" %>
+        <%= link_to image_tag('winegram.png'), wines_path, class: "header_logo" %>
       </div>
       <nav>
       <ul class="nav">
@@ -18,26 +18,38 @@
         <%= f.select :genre , ['red', 'white', 'sparkling'] %>
         <%= f.submit 'post' %>
  <% end %>
-        </li>
       </ul>
       </nav>
     </div>
-      
+ <% elsif admin_signed_in? %>
+    <div class="header_block">
+      <div class="header_right">
+        <%= link_to image_tag('winegram.png'), admins_index_path, class: "header_logo" %>
+      </div>
+      <nav>
+      <ul class="nav">
+        <li class="lists">ログアウト
+          <%= link_to "log out", destroy_admin_session_path, method: :delete,  class: "header_btn" %></li>
+      </ul>
+      </nav>
+    </div>
  <% else %>
-      <div class="header_block">
+    <div class="header_block">
         <div class="header_right">
-          <%= link_to image_tag('wine.png'),root_path, class: "header_logo" %>
+          <%= link_to image_tag('winegram.png'),root_path, class: "header_logo" %>
         </div>
         <nav>
         <ul class="nav">
-          <li class="lists">このサイトについて
+          <li class="lists">アバウト
             <%= link_to "about", top_about_path, class: "header_btn" %></li>
           <li class="lists">新規登録
             <%= link_to "sign up", new_user_registration_path, class: "header_btn" %></li>
           <li class="lists">ログイン
             <%= link_to "log in", new_user_session_path, class: "header_btn" %></li>
+          <li class="lists">管理者
+            <%= link_to "admins", new_admin_session_path, class: "header_btn" %></li>
         </ul>
-       </nav>
+        </nav>
     </div>
   <% end %>
  </header>
